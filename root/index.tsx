@@ -90,6 +90,15 @@ html {
         }
       </div>
       <Editor key={lang} style={{flexGrow: 1}} lang={langExt} value={code} onChange={handleEditorChange} />
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', borderTop: '1px solid #ccc', padding: '4px', gap: '0.5em'}}>
+        Built with 
+        <a href="https://react.dev/">React</a>
+        <a href="https://codemirror.net/">CodeMirror</a>
+        and
+        <a href="https://esbuild.github.io/">esbuild</a>
+        |
+        <a href="https://github.com/zweifisch/lezer-ast-explorer">GitHub</a>
+      </div>
     </div>
   </>
 }
