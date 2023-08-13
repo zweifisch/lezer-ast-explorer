@@ -92,6 +92,7 @@ export function Editor(props: EditorProps) {
           width: '50%',
           height: '100%',
           overflow: 'auto',
+          borderRight: '1px solid #ccc',
         }}
         ref={ref}
       ></div>

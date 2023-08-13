@@ -76,11 +76,11 @@ html {
     <style>{style}</style>
 
     <div style={{height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column'}}>
-      <div style={{display: 'flex', gap: '10px', padding: '10px'}}>
+      <div style={{display: 'flex', gap: '10px', padding: '0', borderBottom: '1px solid #ccc'}}>
         {
           Object.keys(languages).map(l =>
             <div
-              style={{background: lang === l ? '#fafafa' : '#efefef' , padding: '4px', cursor: 'pointer'}}
+              style={{background: lang === l ? '#fafafa' : '#efefef' , padding: '10px 6px', cursor: 'pointer'}}
               key={l}
               onClick={() => setLang(l)}
             >
@@ -90,7 +90,7 @@ html {
         }
       </div>
       <Editor key={lang} style={{flexGrow: 1}} lang={langExt} value={code} onChange={handleEditorChange} />
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', borderTop: '1px solid #ccc', padding: '4px', gap: '0.5em'}}>
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', borderTop: '1px solid #ccc', padding: '6px', gap: '0.5em'}}>
         Built with 
         <a href="https://react.dev/">React</a>
         <a href="https://codemirror.net/">CodeMirror</a>
