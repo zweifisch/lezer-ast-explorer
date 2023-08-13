@@ -1,5 +1,5 @@
 {
-  "name": "lezer-ast-viewer",
+  "name": "lezer-ast-explorer",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
@@ -24,8 +24,7 @@
   "scripts": {
     "start": "./bin",
     "release": "standard-version",
-    "compile": "tsc -p .",
-    "build": "./bin build",
-    "prepare": "npm run compile && ./bin build"
+    "compile": "tsc -p . && ./bin build",
+    "prepare": "npm run compile"
   }
 }

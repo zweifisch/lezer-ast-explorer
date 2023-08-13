@@ -43,6 +43,10 @@ export default function() {
     setCode(localStorage.getItem(lang) || placeholders[lang] || '')
   }, [lang])
 
+  React.useEffect(() => {
+    document.title = 'Lezer AST Explorer'
+  }, [])
+
   const style = `
 div::-webkit-scrollbar {
   width: 8px;

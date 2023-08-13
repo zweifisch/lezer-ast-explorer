@@ -35,7 +35,7 @@ const root = 'root';
 const dist = 'dist';
 function bundle(opts) {
     return __awaiter(this, void 0, void 0, function* () {
-        const outfile = path_1.default.join('build', opts.entry.slice(0, -4) + '.js');
+        const outfile = opts.outfile || path_1.default.join('build', opts.entry.slice(0, -4) + '.js');
         yield esbuild_1.default.build({
             entryPoints: [opts.entry],
             outfile,
@@ -117,11 +117,13 @@ function writeTextFile(path, content) {
 }
 function build() {
     return __awaiter(this, void 0, void 0, function* () {
-        const files = yield fs_1.promises.readdir('./root');
+        const files = yield fs_1.promises.readdir(root);
         for (const file of files) {
-            if (file.endsWith('.tsx')) {
-                const bundled = yield bundle({ entry: file });
-                yield writeTextFile(file.replace('root', 'www'), bundled);
+            if (file.endsWith('index.tsx')) {
+                yield bundle({
+                    entry: path_1.default.join(root, file),
+                    outfile: path_1.default.join(dist, file.replace('.tsx', '.js')),
+                });
             }
         }
         yield writeTextFile(path_1.default.join(dist, 'index.html'), html('index'));

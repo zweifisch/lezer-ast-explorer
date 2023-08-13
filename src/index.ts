@@ -2,7 +2,7 @@ import http from 'http'
 import {promises as fs, createReadStream} from 'fs'
 import {URL} from 'url'
 import esbuild from 'esbuild'
-import pth, { dirname } from 'path'
+import pth from 'path'
 import { globalExternals } from "@fal-works/esbuild-plugin-global-externals"
 
 async function findFile(files: Array<string>) {
@@ -20,8 +20,9 @@ const dist = 'dist'
 
 async function bundle(opts: {
   entry: string
+  outfile?: string
 }) {
-  const outfile = pth.join('build', opts.entry.slice(0, -4) + '.js')
+  const outfile = opts.outfile || pth.join('build', opts.entry.slice(0, -4) + '.js')
   await esbuild.build({
     entryPoints: [opts.entry],
     outfile,
@@ -109,11 +110,13 @@ async function writeTextFile(path: string, content: string) {
 }
 
 async function build() {
-  const files = await fs.readdir('./root')
+  const files = await fs.readdir(root)
   for (const file of files) {
-    if (file.endsWith('.tsx')) {
-      const bundled = await bundle({entry: file})
-      await writeTextFile(file.replace('root', 'www'), bundled)
+    if (file.endsWith('index.tsx')) {
+      await bundle({
+        entry: pth.join(root, file),
+        outfile: pth.join(dist, file.replace('.tsx', '.js')),
+      })
     }
   }
   await writeTextFile(pth.join(dist, 'index.html'), html('index'))
