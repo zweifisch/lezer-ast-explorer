@@ -1,0 +1,31 @@
+{
+  "name": "lezer-ast-viewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "author": "",
+  "types": "build/index.d.ts",
+  "devDependencies": {
+    "@codemirror/lang-css": "^6",
+    "@codemirror/lang-java": "^6",
+    "@codemirror/lang-javascript": "^6",
+    "@codemirror/lang-less": "^6",
+    "@codemirror/lang-markdown": "^6",
+    "@codemirror/lang-python": "^6",
+    "@codemirror/lang-rust": "^6",
+    "@fal-works/esbuild-plugin-global-externals": "^2",
+    "@types/node": "^14",
+    "@types/react": "^16",
+    "codemirror": "^6",
+    "esbuild": "^0.14.25",
+    "standard-version": "^9.5.0",
+    "typescript": "^4"
+  },
+  "scripts": {
+    "start": "./bin",
+    "release": "standard-version",
+    "compile": "tsc -p .",
+    "build": "./bin build",
+    "prepare": "npm run compile && ./bin build"
+  }
+}
