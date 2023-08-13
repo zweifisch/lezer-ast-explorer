@@ -32,7 +32,7 @@ function findFile(files) {
 }
 const globalName = 'lezerAstViewer';
 const root = 'root';
-const dist = 'dist';
+const dist = 'docs';
 function bundle(opts) {
     return __awaiter(this, void 0, void 0, function* () {
         const outfile = opts.outfile || path_1.default.join('build', opts.entry.slice(0, -4) + '.js');

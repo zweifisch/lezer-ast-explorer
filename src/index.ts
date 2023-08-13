@@ -16,7 +16,7 @@ async function findFile(files: Array<string>) {
 
 const globalName = 'lezerAstViewer'
 const root = 'root'
-const dist = 'dist'
+const dist = 'docs'
 
 async function bundle(opts: {
   entry: string
