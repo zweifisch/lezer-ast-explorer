@@ -7,6 +7,7 @@ import { rust } from '@codemirror/lang-rust'
 import { java } from '@codemirror/lang-java'
 import { less } from '@codemirror/lang-less'
 import { markdown } from '@codemirror/lang-markdown'
+import { xml } from '@codemirror/lang-xml'
 
 import * as placeholders from './placeholders'
 
@@ -17,6 +18,7 @@ const languages = {
   markdown: [markdown, {}],
   rust: [rust, {}],
   java: [java, {}],
+  xml: [xml, {}],
 }
 
 export default function() {
